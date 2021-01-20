@@ -1,0 +1,13 @@
+config.json
+*.ipynb
+*.sqlite3
+.ipynb_checkpoints/
+_pycache_/
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+.vscode/*
+.history
