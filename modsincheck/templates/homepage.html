@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>ModsInCheck - Home</title>
+        <h1>ModsInCheck</h1>
+        <link rel="stylesheet" type="text/css" href={% static "homepage.css" %}>
+        <link rel="stylesheet" type="text/css" href={% static "autocomplete.css" %}>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript" src="{% static "autocomplete.js" %}"></script>
+    </head>
+    <body>
+        <div class="form-group">
+            <label for="search_mod"></label>
+            <input type="text" class="form-control" id="search" placeholder="Moderator"/>
+            <button type="button" class="mod_submit" id="submit-button" onclick=get_mod_or_subreddit()>Submit</button>
+        </div>
+        <script>
+            var mod_1 = {{ mod_0|safe }};
+            var mod_2 = {{ mod_1|safe }};
+            var mod_3 = {{ mod_2|safe }};
+            var mods = {{ mod_lst|safe }};
+            var auto_complete_data = {{ auto_complete_data|safe }};
+        </script>
+        <script type="text/javascript" src={% static "homepage.js" %}></script>
+        <h2 style="text-align: center; margin-top: 5%;">Top 3 Most Active Moderators This Month</h2>
+
+        <div id="chart-grid" style="text-align: center; margin-top: 2%;">
+            <h3 id="animate_1"></h3>
+            <h3 id="animate_2"></h3>
+            <h3 id="animate_3"></h3>
+        </div>
+        
+        <div id = "chart-grid">
+            <div id="chart1" style="height: calc(35vh + 15vw)"></div> 
+            <div id="chart2" style="height: calc(35vh + 15vw)"></div> 
+            <div id="chart3" style="height: calc(35vh + 15vw)"></div> 
+        </div>
+    </body>
+</html>

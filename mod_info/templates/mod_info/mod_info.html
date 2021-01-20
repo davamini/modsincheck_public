@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        {% load static %}
+        <title>ModsinCheck - {{ name }}</title>
+        <link rel="stylesheet" type="text/css" href={% static "mod_info_styles.css" %}>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script>
+            var dates = {{dates|safe}};
+            var scores = {{scores|safe}};
+            var most_recent_score = {{most_recent_score}};
+        </script>
+        <script type="text/javascript" src={% static "mod_info_script.js" %}></script>
+    </head>
+    <body>
+        <button class="back-button" onclick=goBack()>Back</button>
+        <div class="column1">
+            <h1>Censorship Activity:<em>&nbsp{{ name }}</em></h1>
+            <h3 id="recent-score"></h3>
+        </div>
+        <div class="column2">
+            <div id="score_over_time_chart"></div><br>
+        </div>
+        <h3>Subreddits currently moderating:</h3>
+        <div class="scroll-subreddits">
+            <ul>
+                {% for subreddit in subreddits_moderated %}
+                    <li style="font-family: Arial, Helvetica, sans-serif;"> &nbsp {{ subreddit }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <h3>Account created: {{ account_created }}</h3>
+    </body>
+</html>
